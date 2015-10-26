@@ -143,6 +143,7 @@ def find_cloud_elements(mergImgs, timelist, mainStrDir, lat, lon, TRMMdirName=No
     #openfile for storing cloudElement information meeting user criteria i.e. MCCs in this case
     cloudElementsUserFile = open((MAIN_DIRECTORY + '/textFiles/cloudElementsUserFile.txt'), 'w')
 
+
     filenameJSON = MAIN_DIRECTORY + '/textFiles/graphJSON.txt'
     #NB in the TRMM files the info is hours since the time thus 00Z file has in 01, 02 and 03 times
     for t in xrange(mergImgs.shape[0]):
@@ -459,6 +460,7 @@ def find_cloud_elements(mergImgs, timelist, mainStrDir, lat, lon, TRMMdirName=No
                 labels, _ = ndimage.label(cloudElement)
                 cloudElementsFile.write('\n-----------------------------------------------')
                 cloudElementsFile.write('\n\nTime is: %s' %(str(timelist[t])))
+                cloudElementsFile.write('\n\nceUniqueID is: %s' %('F' + str(frameNum) + 'CE' + str(00)))
                 # cloudElementLat = LAT[loc[0],0]
                 # cloudElementLon = LON[0,loc[1]]
 
